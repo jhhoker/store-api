@@ -85,7 +85,7 @@ export const login = async (req, res) => {
             }, 
             secret
         );
-        res.status(200).json({ msg: "Autenticação realizada com sucesso!", token });
+        res.status(200).cookie('access_token', token).json({ msg: "Autenticação realizada com sucesso!"});
     } catch(error) {
         res.status(500).json({ msg: ""+error });
     }

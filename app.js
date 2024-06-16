@@ -1,5 +1,6 @@
 import Express from "express";
 import { connection } from "./db.js";
+import cookieParser from "cookie-parser";
 
 import { authRouter } from "./routes/auth.js";
 import { userRouter } from "./routes/user.js";
@@ -15,6 +16,7 @@ const app = Express();
 const port = process.env.PORT || 3030;
 
 app.use(Express.json());
+app.use(cookieParser());
 
 app.get("/", (req, res) => {
     res.status(200).json({ msg: "Bem vindo papito" });
